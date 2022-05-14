@@ -6,28 +6,32 @@ __human_name__ = 'strings'
 
 from re import sub
 
+# Part 1
 
-goalscorer_1 = 'Gullit'
-goalscorer_2 = 'van Basten'
+goalscorer_0 = 'Ruud Gullit'
+goalscorer_1 = 'Marco van Basten'
 
-time_goal_1 = str(32)
-time_goal_2 = str(54)
+goal_0 = 32
+goal_1 = 54
 
-scorers = goalscorer_1 + time_goal_1, goalscorer_2 + time_goal_2
+scorers = goalscorer_0 + ' ' + str(goal_0) + ', ' + goalscorer_1 + ' ' + str(goal_1)
 
-report = goalscorer_1 + ' scored in the ' + time_goal_1 + 'nd minute of the game, while '+ goalscorer_2 +' scored the second goal in the ' + time_goal_2 + 'th minute' 
-print (report)
+report = f'{goalscorer_0} scored in the {goal_0}nd minute\n{goalscorer_1} scored in the {goal_1}th minute' 
+
+# Part 2
+
 player = 'Frank Rijkaard'
 
-first_name = player [0:5]
+first_name = player[:player.find(' ')]
 
-last_name_len = player [6:] 
+last_name = player[player.find(' ')+1:] 
 
-name_short = player [0] + '. ' + player [6:14]
+last_name_len = len(last_name)
 
-chant = (first_name + '!') * 5
+first_name_short = player[0] 
+name_short = first_name_short + '. ' + last_name
 
-print(chant)
+message = (first_name + '! ') * 5 
+chant = message[0:len(message)-1]
 
-
-
+good_chant = chant[len(chant)-1] != " "
